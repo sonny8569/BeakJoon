@@ -3,34 +3,20 @@ class CodingTest {
         @JvmStatic
         fun main(args: Array<String>) {
             val reader = System.`in`.bufferedReader()
-            val index = reader.readLine().toInt()
-            val input = reader.readLine().split(" ")
-            if (input.size != index) {
-                return
+            val count = reader.readLine().toInt()
+            val numbers = reader.readLine().split(" ").map { it.toInt() }
+
+            if (numbers.size != count) return
+
+            var min = Int.MAX_VALUE
+            var max = Int.MIN_VALUE
+
+            for (num in numbers) {
+                if (num < min) min = num
+                if (num > max) max = num
             }
-            val min = getMin(input)
-            val max = getMax(input)
+
             println("$min $max")
-        }
-
-        private fun getMin(data: List<String>): Int {
-            var min = Integer.MAX_VALUE
-            for (integer in data) {
-                if (min > integer.toInt()) {
-                    min = integer.toInt()
-                }
-            }
-            return min
-        }
-
-        private fun getMax(data: List<String>): Int {
-            var max = Integer.MIN_VALUE
-            for (integer in data) {
-                if (max < integer.toInt()) {
-                    max = integer.toInt()
-                }
-            }
-            return max
         }
     }
 }
