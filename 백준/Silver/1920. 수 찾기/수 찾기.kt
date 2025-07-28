@@ -8,7 +8,7 @@ class CodingTest {
             val findIndex = reader.readLine().toInt()
             val findData = reader.readLine().split(" ").map { data -> data.toInt() }
             for (data in findData) {
-                if(data in targetData.keys && targetData[data] == true) {
+                if(targetData[data] == true) {
                     println("1")
                 } else {
                     println("0")
